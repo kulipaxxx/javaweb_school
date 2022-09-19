@@ -7,31 +7,34 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-/**
- * 成功servlet
- *
- * @author Administrator
- * @date 2022/09/18
- */
-public class SuccessServlet extends HttpServlet {
+public class Referer extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
-        req.setCharacterEncoding("UTF-8");
+
+        //设置浏览器禁止缓存
+        resp.setHeader("Cache-control", "no-cache");
+        resp.setHeader("pragma", "no-cache");
+        resp.setDateHeader("expires", -1);
+
+
+        //获取referer表示请求来源
+        String referer = req.getHeader("referer");
 
         PrintWriter writer = resp.getWriter();
-        writer.println("登录成功<br/>");
-        //转发获取信息
-        writer.println("用户名：" + req.getAttribute("name") + "<br/>");
-        writer.println("密码：" + req.getAttribute("pwd") + "<br/>");
+        if (referer == null || !referer.contains("http://localhost:8080/index.jsp")){
+            writer.println("非法倒链，已返回原页面访问");
 
-        //重定向获取信息
-        writer.println("用户名：" + req.getParameter("name") + "<br/>");
-        writer.println("密码：" + req.getParameter("pwd") + "<br/>");
+            resp.sendRedirect("index.jsp");
+        }
+        else {
+            writer.println("正常访问");
+        }
+
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doGet(req, resp);
+        this.doGet(req,resp);
     }
 }

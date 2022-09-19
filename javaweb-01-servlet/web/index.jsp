@@ -7,10 +7,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+<head>
     <title>$Title$</title>
-  </head>
-  <body>
-  <h1>你好世界</h1>
-  </body>
+</head>
+<body>
+<h1>你好世界啦啦啦</h1>
+<a href="/referer">首页</a>
+</body>
 </html>

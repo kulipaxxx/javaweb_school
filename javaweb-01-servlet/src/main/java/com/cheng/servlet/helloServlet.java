@@ -13,6 +13,7 @@ public class helloServlet extends HttpServlet {
         resp.setContentType("text/html;charset=UTF-8");
         PrintWriter writer = resp.getWriter();
         writer.println("hello servlet你好");
+        resp.setHeader("Refresh", "3;url=https://wenda.zhihuishu.com/stu/courseInfo/homeworkExam?courseId=10158127&ticket=ST-1369225-pvZA6TrlA557wJz0u1tg-passport.zhihuishu.com");
     }
 
     @Override
