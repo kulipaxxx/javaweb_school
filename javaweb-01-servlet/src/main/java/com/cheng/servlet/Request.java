@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Map;
 
 public class Request extends HttpServlet {
@@ -23,6 +24,18 @@ public class Request extends HttpServlet {
 
         String[] hobbies = req.getParameterValues("hobby");
         Map<String, String[]> map = req.getParameterMap();
+        for(Iterator iter = map.entrySet().iterator(); iter.hasNext();) {
+            Map.Entry element = (Map.Entry) iter.next();
+            //key值
+            Object strKey = element.getKey();
+            //value,数组形式
+            String[] value = (String[]) element.getValue();
+
+            System.out.print(strKey.toString() + "=");
+            for (int i = 0; i < value.length; i++) {
+                System.out.print(value[i] + ",");
+            }
+        }
         String result="";
 //        System.out.println("啦啦啦啦啦");
         if(name!=null && age!=null){

@@ -1,5 +1,8 @@
 package com.cheng.servlet;
 
+import javax.servlet.GenericServlet;
+import javax.servlet.Servlet;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -7,11 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class Referer extends HttpServlet {
+public class Referer extends HttpServlet implements Servlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
-
+getServletConfig();
         //设置浏览器禁止缓存
         resp.setHeader("Cache-control", "no-cache");
         resp.setHeader("pragma", "no-cache");
