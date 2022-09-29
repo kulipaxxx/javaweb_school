@@ -12,11 +12,8 @@ import java.io.PrintWriter;
 import java.util.Map;
 
 public class CartServlet extends HttpServlet {
-    String[] selctItmes;//选取的物品
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html;charset=utf-8");
-        req.setCharacterEncoding("UTF-8");
         //获取session
         HttpSession session = req.getSession(true);
         Cart cart = (Cart) session.getAttribute("cart");
@@ -43,6 +40,7 @@ public class CartServlet extends HttpServlet {
         writer.println("<h1>您的购物车有"+ cart.getNumbers() + "样商品</h1>");
         Map books = cart.getBooks();
 
+        writer.println("<h2>购物车中的商品有</h2>");
         for (Object o : books.keySet()) {
             writer.println(o + "的数量有：" + books.get(o) + "</br>");
         }

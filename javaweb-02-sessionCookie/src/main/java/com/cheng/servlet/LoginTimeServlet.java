@@ -1,7 +1,6 @@
 package com.cheng.servlet;
 
-import com.cheng.utils.BaseCookie;
-
+import javax.servlet.Filter;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
@@ -9,10 +8,9 @@ import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class LoginTimeServlet extends HttpServlet {
+public class LoginTimeServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html;charset=utf-8");//乱码
         Cookie[] cookies = req.getCookies();//获取cookies
 
         PrintWriter writer = resp.getWriter();//获取out
@@ -31,7 +29,7 @@ public class LoginTimeServlet extends HttpServlet {
             writer.println("欢迎，你是首次访问本站");
         }
         //获取这次访问时间
-        String s = new SimpleDateFormat("yyyy-MM--dd:hh:mm:ss").format(new Date());
+        String s = new SimpleDateFormat("yyyy-MM-dd-hh:mm:ss").format(new Date());
         Cookie cookie = new Cookie("lastaccTime",s);
         //加入cookie
         resp.addCookie(cookie);

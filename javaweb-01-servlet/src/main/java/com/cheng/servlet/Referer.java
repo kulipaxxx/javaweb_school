@@ -14,19 +14,20 @@ public class Referer extends HttpServlet implements Servlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
-getServletConfig();
+
         //设置浏览器禁止缓存
         resp.setHeader("Cache-control", "no-cache");
         resp.setHeader("pragma", "no-cache");
         resp.setDateHeader("expires", -1);
 
+        String requestURI = req.getRequestURI();
 
         //获取referer表示请求来源
         String referer = req.getHeader("referer");
 
         PrintWriter writer = resp.getWriter();
         if (referer == null || !referer.contains("http://localhost:8080/index.jsp")){
-            writer.println("非法倒链，已返回原页面访问");
+            writer.println("非法盗链，已返回原页面访问");
 
             resp.sendRedirect("index.jsp");
         }
