@@ -72,4 +72,48 @@
         <url-pattern>/login/*</url-pattern>
     </filter-mapping>
 
+    <!--敏感词过滤-->
+    <servlet>
+        <servlet-name>wordSensitive</servlet-name>
+        <servlet-class>com.cheng.Sensitive_word.SensitiveWordServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>wordSensitive</servlet-name>
+        <url-pattern>/sensitive/word</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>wordFilter</filter-name>
+        <filter-class>com.cheng.Sensitive_word.SensitiveWordFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>wordFilter</filter-name>
+        <url-pattern>/sensitive/*</url-pattern>
+    </filter-mapping>
+
+    <!--权限过滤-->
+    <servlet>
+        <servlet-name>loginAutoServlet</servlet-name>
+        <servlet-class>com.cheng.permission.LoginAutoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginAutoServlet</servlet-name>
+        <url-pattern>/permission/login</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>servletInvalidate</servlet-name>
+        <servlet-class>com.cheng.permission.ServletInvalidate</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>servletInvalidate</servlet-name>
+        <url-pattern>/permission/out</url-pattern>
+    </servlet-mapping>
+    <filter>
+        <filter-name>filterPermission</filter-name>
+        <filter-class>com.cheng.permission.FilterPermission</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filterPermission</filter-name>
+        <url-pattern>/permission/*</url-pattern>
+    </filter-mapping>
 </web-app>

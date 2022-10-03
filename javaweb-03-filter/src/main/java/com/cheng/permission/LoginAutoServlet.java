@@ -1,21 +1,23 @@
-package com.cheng.Sensitive_word;
+package com.cheng.permission;
+
+import com.cheng.login.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
-public class SensitiveWordServlet extends HttpServlet {
+public class LoginAutoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String user = req.getParameter("userName");
-        String text = req.getParameter("text");
+        User user = (User) req.getSession().getAttribute("user");
 
-        PrintWriter writer = resp.getWriter();
-        writer.println("<h1>用户名："+ user + "</h1>");
-        writer.println("<h1>留言："+ text + "</h1>");
+        if (user.getName().equals("cqut") && user.getPwd().equals("123456")){
+            resp.sendRedirect("/permission/main.html");
+        }else {
+            resp.sendRedirect("/permission/form2.html");
+        }
     }
 
     @Override
@@ -23,4 +25,3 @@ public class SensitiveWordServlet extends HttpServlet {
         this.doGet(req,resp);
     }
 }
-
