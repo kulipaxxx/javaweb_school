@@ -33,6 +33,7 @@ class NewRequest extends HttpServletRequestWrapper {
     public String getParameter(String name) {
         if (name.equals("text")){
             String info = request.getParameter("text");
+
             for (int i = 0; i < sensitves.length; i++) {
                 if (info.contains(sensitves[i])){
                     String words = sensitves[i];
