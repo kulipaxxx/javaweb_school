@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <listener>
+        <description>test listener</description>
+        <listener-class>com.cheng.test.tsetContextListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.cheng.test.testAttributeListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.cheng.onlineUser.OnlineUserListener</listener-class>
+    </listener>
+
+
+    <servlet>
+        <servlet-name>testContext</servlet-name>
+        <servlet-class>com.cheng.servlet.testContextAttritubute</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>testContext</servlet-name>
+        <url-pattern>/testContext</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>onlineuesr</servlet-name>
+        <servlet-class>com.cheng.onlineUser.OnlineUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>onlineuesr</servlet-name>
+        <url-pattern>/onlineuser</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>com.cheng.onlineUser.OnlineLogout</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+</web-app>

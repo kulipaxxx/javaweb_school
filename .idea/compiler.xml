@@ -9,6 +9,7 @@
         <module name="javaweb-01-servlet" />
         <module name="javaweb-02-sessionCookie" />
         <module name="javaweb-03-filter" />
+        <module name="javaweb-04-listener" />
       </profile>
     </annotationProcessing>
   </component>
