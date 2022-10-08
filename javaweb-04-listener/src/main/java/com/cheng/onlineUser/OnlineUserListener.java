@@ -24,10 +24,12 @@ public class OnlineUserListener implements HttpSessionListener {
         context = session.getServletContext();
         System.out.println("创建Session");
         Integer count = (Integer)context.getAttribute("user");
-        System.out.println("变前" + count);
-        setAttribute(count,true);
-        count = (Integer)context.getAttribute("user");
-        System.out.println("变后" + count);
+        synchronized (this){
+            System.out.println("变前" + count);
+            setAttribute(count,true);
+            count = (Integer)context.getAttribute("user");
+            System.out.println("变后" + count);
+        }
     }
 
     public void sessionDestroyed(HttpSessionEvent se) {
