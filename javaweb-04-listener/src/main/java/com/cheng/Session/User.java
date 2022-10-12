@@ -5,7 +5,7 @@ import javax.servlet.http.HttpSessionActivationListener;
 import javax.servlet.http.HttpSessionEvent;
 import java.io.Serializable;
 
-@WebListener
+//@WebListener
 public class User implements Serializable, HttpSessionActivationListener {
     private String userName;
 

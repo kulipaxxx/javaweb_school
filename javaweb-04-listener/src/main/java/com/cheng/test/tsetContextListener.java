@@ -11,9 +11,11 @@ public class tsetContextListener implements ServletContextListener {
 
     public void contextInitialized(ServletContextEvent sce) {
         System.out.println("context创建了");
+
     }
 
     public void contextDestroyed(ServletContextEvent sce) {
         System.out.println("context销毁了");
+
     }
 }

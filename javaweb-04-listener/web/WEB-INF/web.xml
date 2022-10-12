@@ -4,19 +4,19 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-    <!--<listener>-->
-        <!--<description>test listener</description>-->
-        <!--<listener-class>com.cheng.test.tsetContextListener</listener-class>-->
-    <!--</listener>-->
-    <!--<listener>-->
-        <!--<listener-class>com.cheng.test.testAttributeListener</listener-class>-->
-    <!--</listener>-->
+    <listener>
+        <description>test listener</description>
+        <listener-class>com.cheng.test.tsetContextListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.cheng.test.testAttributeListener</listener-class>
+    </listener>
     <!--<listener>-->
         <!--<listener-class>com.cheng.onlineUser.OnlineUserListener</listener-class>-->
     <!--</listener>-->
-    <listener>
-        <listener-class>com.cheng.onlineAdd.CountListener</listener-class>
-    </listener>
+    <!--<listener>-->
+        <!--<listener-class>com.cheng.onlineAdd.CountListener</listener-class>-->
+    <!--</listener>-->
     <filter>
         <filter-name>encoding</filter-name>
         <filter-class>com.cheng.FilterEncoding</filter-class>

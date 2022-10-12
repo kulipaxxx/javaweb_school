@@ -1,4 +1,4 @@
-package com.cheng.onlineUser;
+package com.cheng.onlineAdd;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -14,8 +14,8 @@ public class OnlineUserServlet extends HttpServlet {
         ServletContext context = req.getSession().getServletContext();//调用此方法创建Session
         resp.setContentType("text/html;charset=utf-8");
 
-        Integer user = (Integer)context.getAttribute("user");
-        resp.getWriter().println("<h1>在线人数："+ user + "</h1>");
+        AtomicInteger user = (AtomicInteger)context.getAttribute("user");
+        resp.getWriter().println("<h1>在线人数："+ user.get() + "</h1>");
         resp.getWriter().println("</br><a href=\"/logout\">登录注销");
     }
 

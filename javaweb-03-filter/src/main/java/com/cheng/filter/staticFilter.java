@@ -21,11 +21,11 @@ public class staticFilter implements Filter {
         //获取uri
         String uri = req.getRequestURI();
         StringBuffer requestURL = req.getRequestURL();
-//        System.out.println(liveTimeP+ " " + liveTimeJC + " " + uri + " " + requestURL);
+        System.out.println(liveTimeP+ " " + liveTimeJC + " " + uri + " " + requestURL);
         if (uri.endsWith(".jpg") || uri.endsWith(".png"))
-            resp.setHeader("expires", String.valueOf(System.currentTimeMillis()+60*60*Integer.valueOf(liveTimeP)));//缓存
+            resp.setDateHeader("expires", (System.currentTimeMillis()+60*60*1000*Long.valueOf(liveTimeP)));//缓存
         else if (uri.endsWith(".css") || uri.endsWith(".js"))
-            resp.setHeader("expires", String.valueOf(System.currentTimeMillis()+60*60*Integer.valueOf(liveTimeJC)));//缓存
+            resp.setDateHeader("expires", (System.currentTimeMillis()+60*60*1000*Long.valueOf(liveTimeJC)));//缓存
         //放行
         chain.doFilter(request,response);
     }

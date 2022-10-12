@@ -12,6 +12,8 @@ public class AutoLoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String userName = req.getParameter("userName");
         String pwd = req.getParameter("pwd");
+        System.out.println(userName + pwd);
+        HttpSession session = req.getSession();
         String[] times = req.getParameterValues("time");
         String kp = null;
         if (times != null){
@@ -22,8 +24,6 @@ public class AutoLoginServlet extends HttpServlet {
         if (userName != null && pwd != null) {
             if (userName.equals("root") && pwd.equals("123456")) {
                 User user = new User(userName, pwd);
-                HttpSession session = req.getSession();
-                session.setAttribute("user", user);
                 String result = userName + "-" + pwd;
                 Cookie info = new Cookie("userInfo", result);
                 if (kp != null){
@@ -41,6 +41,7 @@ public class AutoLoginServlet extends HttpServlet {
                             break;
                     }
                 }
+                session.setAttribute("user", user);
                 resp.addCookie(info);
                 resp.sendRedirect("/login/success");
             } else

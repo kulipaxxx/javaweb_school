@@ -35,7 +35,9 @@ public class OnlineUserListener implements HttpSessionListener {
     public void sessionDestroyed(HttpSessionEvent se) {
         context = se.getSession().getServletContext();
         System.out.println("session关闭");
-        Integer count = (Integer)context.getAttribute("user");
-        setAttribute(count,false);
+        synchronized (this) {
+            Integer count = (Integer) context.getAttribute("user");
+            setAttribute(count,false);
+        }
     }
 }

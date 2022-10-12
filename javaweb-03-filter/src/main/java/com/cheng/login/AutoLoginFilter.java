@@ -20,17 +20,23 @@ public class AutoLoginFilter implements Filter {
         HttpSession session = req.getSession();
         Cookie[] cookies = req.getCookies();
         String result = "root-123456";
-        if (cookies != null){
+        String login = null;
+        if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("userInfo")){
-                    if (cookie.getValue().equals(result)){
-                        session.setAttribute("user", new User("root","123456"));
-                        req.getRequestDispatcher("/login/success").forward(req,resp);
-                    }
+                if (cookie.getName().equals("userInfo")) {
+                    login = cookie.getValue();
+                    break;
                 }
             }
         }
-
+        if (login != null){
+            if (login.equals(result)){
+                User user = new User();
+                user.setName("root");
+                user.setPwd("123456");
+                session.setAttribute("user", user);
+            }
+        }
         chain.doFilter(request,response);
     }
 

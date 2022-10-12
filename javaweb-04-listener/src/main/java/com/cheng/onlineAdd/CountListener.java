@@ -22,12 +22,18 @@ public class CountListener implements HttpSessionListener, ServletContextListene
         AtomicInteger user = getAtomicInteger(se);
         user.incrementAndGet();
         System.out.println("context:" + user);
+        ServletContext context = se.getSession().getServletContext();
+        AtomicInteger user1 = (AtomicInteger) context.getAttribute("user");
+        System.out.println("contextaaaa:" + user1);
     }
 
     public void sessionDestroyed(HttpSessionEvent se) {
         AtomicInteger user = getAtomicInteger(se);
         user.decrementAndGet();
         System.out.println(user);
+        ServletContext context = se.getSession().getServletContext();
+        AtomicInteger user1 = (AtomicInteger) context.getAttribute("user");
+        System.out.println(user1);
     }
 
     private AtomicInteger getAtomicInteger(HttpSessionEvent se){
