@@ -8,22 +8,21 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class ListServlet extends HttpServlet{
+public class ListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         PrintWriter writer = resp.getWriter();
 
         HttpSession session = req.getSession();
-        String user = (String)session.getAttribute("user");
+        String user = (String) session.getAttribute("user");
         //防止未登录访问页面
-       if (user == null){
-           writer.println("非法访问");
+        if (user == null) {
+            writer.println("非法访问");
 
-           writer.println("<a href=\"/showL\">返回原登录页面</a>");
-        }
-        else {//正常访问
-           writer.println("商品页面");
+            writer.println("<a href=\"/showL\">返回原登录页面</a>");
+        } else {//正常访问
+            writer.println("商品页面");
         }
 
 
@@ -31,6 +30,6 @@ public class ListServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       this.doGet(req,resp);
+        this.doGet(req, resp);
     }
 }

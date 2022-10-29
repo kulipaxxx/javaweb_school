@@ -26,12 +26,11 @@ public class Referer extends HttpServlet implements Servlet {
         String referer = req.getHeader("referer");
 
         PrintWriter writer = resp.getWriter();
-        if (referer == null || !referer.contains("http://localhost:8080/index.jsp")){
+        if (referer == null || !referer.contains("http://localhost:8080/index.jsp")) {
             writer.println("非法盗链，已返回原页面访问");
 
             resp.sendRedirect("index.jsp");
-        }
-        else {
+        } else {
             writer.println("正常访问");
         }
 
@@ -39,6 +38,6 @@ public class Referer extends HttpServlet implements Servlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doGet(req,resp);
+        this.doGet(req, resp);
     }
 }

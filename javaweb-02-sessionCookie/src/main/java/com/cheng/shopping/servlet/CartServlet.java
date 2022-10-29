@@ -23,21 +23,21 @@ public class CartServlet extends HttpServlet {
         String[] items = req.getParameterValues("items");
 
         //如果为空
-        if (cart == null){
+        if (cart == null) {
             Cart cart1 = new Cart();
-            session.setAttribute("cart",cart1);
-            cart = (Cart)session.getAttribute("cart");
+            session.setAttribute("cart", cart1);
+            cart = (Cart) session.getAttribute("cart");
         }
-        if (items == null){
+        if (items == null) {
             writer.println("error,你没有加入商品");
             writer.println("<a href=\"/shopping.html\">点击返回页面</a>");
-        }else {
+        } else {
             for (String item : items) {
                 cart.add(item);
             }
         }
-        session.setAttribute("cart",cart);
-        writer.println("<h1>您的购物车有"+ cart.getNumbers() + "样商品</h1>");
+        session.setAttribute("cart", cart);
+        writer.println("<h1>您的购物车有" + cart.getNumbers() + "样商品</h1>");
         Map books = cart.getBooks();
 
         writer.println("<h2>购物车中的商品有</h2>");
@@ -50,6 +50,6 @@ public class CartServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doGet(req,resp);
+        this.doGet(req, resp);
     }
 }

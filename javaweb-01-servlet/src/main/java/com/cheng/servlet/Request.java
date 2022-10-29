@@ -20,11 +20,11 @@ public class Request extends HttpServlet {
         //获取前端传参
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        System.out.println(name +"  " + age);
+        System.out.println(name + "  " + age);
 
         String[] hobbies = req.getParameterValues("hobby");
         Map<String, String[]> map = req.getParameterMap();
-        for(Iterator iter = map.entrySet().iterator(); iter.hasNext();) {
+        for (Iterator iter = map.entrySet().iterator(); iter.hasNext(); ) {
             Map.Entry element = (Map.Entry) iter.next();
             //key值
             Object strKey = element.getKey();
@@ -36,18 +36,18 @@ public class Request extends HttpServlet {
                 System.out.print(value[i] + ",");
             }
         }
-        String result="";
+        String result = "";
 //        System.out.println("啦啦啦啦啦");
-        if(name!=null && age!=null){
-            result = "<font color='red' size='18'>姓名为：" + name +"<br>"+
+        if (name != null && age != null) {
+            result = "<font color='red' size='18'>姓名为：" + name + "<br>" +
                     "年龄为：" + age + "</font>";
-        }else{
+        } else {
             String kp = "";
             for (String hobby : hobbies) {
-                    kp += hobby + " ";
+                kp += hobby + " ";
             }
             result = "<font color='red' size='18'>用户名为：" + username +
-                    "<br>"+"密码为：" + password + "<br>"+
+                    "<br>" + "密码为：" + password + "<br>" +
                     "爱好有：" + kp + "</font>";
         }
         resp.getOutputStream().write(result.getBytes());
@@ -55,6 +55,6 @@ public class Request extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req,resp);
+        doGet(req, resp);
     }
 }

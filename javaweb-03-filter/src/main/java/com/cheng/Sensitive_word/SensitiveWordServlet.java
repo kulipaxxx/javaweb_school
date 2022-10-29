@@ -14,13 +14,13 @@ public class SensitiveWordServlet extends HttpServlet {
         String text = req.getParameter("text");
 
         PrintWriter writer = resp.getWriter();
-        writer.println("<h1>用户名："+ user + "</h1>");
-        writer.println("<h1>留言："+ text + "</h1>");
+        writer.println("<h1>用户名：" + user + "</h1>");
+        writer.println("<h1>留言：" + text + "</h1>");
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doGet(req,resp);
+        this.doGet(req, resp);
     }
 }
 

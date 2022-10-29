@@ -16,18 +16,18 @@ public class testContextAttritubute extends HttpServlet {
         ServletContext context = this.getServletContext();
         PrintWriter writer = resp.getWriter();
         Integer count = 1;
-        Integer t1 = (Integer)context.getAttribute("count");
-        if (t1 != null){
+        Integer t1 = (Integer) context.getAttribute("count");
+        if (t1 != null) {
             count = t1;
-            writer.println("<h1>"+ count +"</h1>");
+            writer.println("<h1>" + count + "</h1>");
             context.setAttribute("count", ++count);
-        }else {
+        } else {
             context.setAttribute("count", count);
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doGet(req,resp);
+        this.doGet(req, resp);
     }
 }

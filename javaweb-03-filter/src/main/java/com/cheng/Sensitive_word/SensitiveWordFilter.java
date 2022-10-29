@@ -13,10 +13,10 @@ public class SensitiveWordFilter implements Filter {
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         //强转
-        HttpServletRequest req = (HttpServletRequest)request;
+        HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
 
-        chain.doFilter(new NewRequest(req),response);
+        chain.doFilter(new NewRequest(req), response);
     }
 
     public void destroy() {
@@ -27,15 +27,15 @@ public class SensitiveWordFilter implements Filter {
 
 class NewRequest extends HttpServletRequestWrapper {
     private HttpServletRequest request;
-    private String[] sensitves = {"狗屁","傻逼","傻帽","你妹"};
+    private String[] sensitves = {"狗屁", "傻逼", "傻帽", "你妹"};
 
     @Override
     public String getParameter(String name) {
-        if (name.equals("text")){
+        if (name.equals("text")) {
             String info = request.getParameter("text");
 
             for (int i = 0; i < sensitves.length; i++) {
-                if (info.contains(sensitves[i])){
+                if (info.contains(sensitves[i])) {
                     String words = sensitves[i];
                     info = info.replace(words, "**");
                 }

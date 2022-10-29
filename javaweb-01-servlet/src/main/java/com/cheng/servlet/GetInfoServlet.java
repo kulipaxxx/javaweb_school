@@ -16,18 +16,18 @@ public class GetInfoServlet extends HttpServlet {
 
         String name = req.getParameter("user");
         String pwd = req.getParameter("pwd");
-        req.setAttribute("name",name);
-        req.setAttribute("pwd",pwd);
+        req.setAttribute("name", name);
+        req.setAttribute("pwd", pwd);
         System.out.println(name + "====" + pwd);
-        if ("admin".equals(name) && "123456".equals(pwd)){
+        if ("admin".equals(name) && "123456".equals(pwd)) {
             //转发
 //            req.getRequestDispatcher("/loginS").forward(req,resp);
             //请求包含
 //            req.getRequestDispatcher("/loginS").include(req,resp);
             //重定向
-            resp.sendRedirect("/loginS?name=" +URLEncoder.encode(name,"UTF-8") + "&pwd=" + pwd);
+            resp.sendRedirect("/loginS?name=" + URLEncoder.encode(name, "UTF-8") + "&pwd=" + pwd);
 //            req.getRequestDispatcher("/loginS?name=" +URLEncoder.encode(name+"橙子","UTF-8") + "&pwd=" + pwd).forward(req,resp);
-        }else {
+        } else {
             //转发
 //            req.getRequestDispatcher("/loginF").forward(req,resp);
             //重定向
@@ -38,6 +38,6 @@ public class GetInfoServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doGet(req,resp);
+        this.doGet(req, resp);
     }
 }

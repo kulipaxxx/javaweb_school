@@ -25,7 +25,7 @@ public class codingFilter implements Filter {
         System.out.println(uri);
         System.out.println("过滤器---------end---------------");
 
-        filterChain.doFilter(request,response);
+        filterChain.doFilter(request, response);
     }
 
 

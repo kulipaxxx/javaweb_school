@@ -13,15 +13,16 @@ public class BaseCookie {
     private HttpServletResponse response;
     private HttpServletRequest request;
 
-    public BaseCookie(){}
+    public BaseCookie() {
+    }
 
-    public BaseCookie(HttpServletRequest req,HttpServletResponse resp){
+    public BaseCookie(HttpServletRequest req, HttpServletResponse resp) {
         this.request = req;
         this.response = resp;
     }
 
     //创建cookie
-    public void createCookie(String cookieName,String cookieValue,int maxAge){
+    public void createCookie(String cookieName, String cookieValue, int maxAge) {
         Cookie cookie = new Cookie(cookieName, cookieValue);
         cookie.setMaxAge(maxAge);
 
@@ -29,12 +30,12 @@ public class BaseCookie {
     }
 
     //获取cookie值
-    public String getValue(String cookieName){
+    public String getValue(String cookieName) {
         Cookie[] cookies = request.getCookies();
         String cookieValue = null;
-        if (cookies != null){
+        if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if (cookieName.equals(cookie.getName())){
+                if (cookieName.equals(cookie.getName())) {
                     cookieValue = cookie.getValue();
                     break;
                 }
@@ -44,12 +45,12 @@ public class BaseCookie {
     }
 
     //删除cookie,可通过设置maxAge=0来删除Cookie。
-    public void deleteCookie(String cookieName){
+    public void deleteCookie(String cookieName) {
         Cookie[] cookies = request.getCookies();
 
-        if (cookies != null){
+        if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if (cookieName.equals(cookie.getName())){
+                if (cookieName.equals(cookie.getName())) {
                     cookie.setMaxAge(0);//删除cookie
                     break;
                 }

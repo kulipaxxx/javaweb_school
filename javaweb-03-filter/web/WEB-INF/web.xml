@@ -20,7 +20,7 @@
         <filter-name>encoding</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    
+
     <filter>
         <filter-name>staticFilter</filter-name>
         <filter-class>com.cheng.filter.staticFilter</filter-class>
@@ -54,7 +54,8 @@
     <servlet-mapping>
         <servlet-name>success</servlet-name>
         <url-pattern>/login/success</url-pattern>
-    </servlet-mapping>    <servlet>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>unSuccess</servlet-name>
         <servlet-class>com.cheng.login.UnSuccessServlet</servlet-class>
     </servlet>

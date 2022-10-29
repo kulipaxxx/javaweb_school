@@ -15,7 +15,7 @@ public class BaseDao {
     private static String password;
 
     //静态代码块，类加载时初始化
-    static{
+    static {
         Properties properties = new Properties();
 
         InputStream stream = BaseDao.class.getClassLoader().getResourceAsStream("db.properties");
@@ -33,13 +33,13 @@ public class BaseDao {
     }
 
     //获取数据库的连接
-    public static Connection getConnection(){
+    public static Connection getConnection() {
 
         Connection connection = null;
         try {
             //加载驱动
             Class.forName(driver);
-            connection = DriverManager.getConnection(url,username,password);
+            connection = DriverManager.getConnection(url, username, password);
 
         } catch (Exception e) {
             e.printStackTrace();

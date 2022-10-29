@@ -5,34 +5,34 @@ import java.util.Map;
 
 public class Cart {
     private int numbers;//存放图书数量
-    private Map<String,Integer> map;
+    private Map<String, Integer> map;
 
-    public Cart(){
+    public Cart() {
         map = new HashMap<String, Integer>();
         numbers = 0;
     }
 
     //加锁影响效率
-    public synchronized void add(String itemName){
+    public synchronized void add(String itemName) {
         System.out.println(itemName);
         //判断是否存在此书
-        if (map.containsKey(itemName)){
+        if (map.containsKey(itemName)) {
             Integer count = map.get(itemName);
 
             //增加数量
-            map.put(itemName,++count);
-        }else {
+            map.put(itemName, ++count);
+        } else {
             //初始化一本
-            map.put(itemName,Integer.valueOf(1));
+            map.put(itemName, Integer.valueOf(1));
         }
         numbers++;
     }
 
-    public int getNumbers(){
+    public int getNumbers() {
         return numbers;
     }
 
-    public Map getBooks(){
+    public Map getBooks() {
         return map;
     }
 }

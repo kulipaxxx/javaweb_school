@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
-<!-- 如果session在1分钟内没有使用，那么Tomcat就会钝化它 -->
-<Manager className="org.apache.catalina.session.PersistentManager" saveOnRestart="true" maxIdleSwap="1">
-    <!-- 把session序列化到Tomcat\work\Catalina\localhost\listener\mysession目录下。 -->
-    <Store className="org.apache.catalina.session.FileStore" directory="c:\mysession"/>
-</Manager>
+    <!-- 如果session在1分钟内没有使用，那么Tomcat就会钝化它 -->
+    <Manager className="org.apache.catalina.session.PersistentManager" saveOnRestart="true" maxIdleSwap="1">
+        <!-- 把session序列化到Tomcat\work\Catalina\localhost\listener\mysession目录下。 -->
+        <Store className="org.apache.catalina.session.FileStore" directory="c:\mysession"/>
+    </Manager>
 </Context>

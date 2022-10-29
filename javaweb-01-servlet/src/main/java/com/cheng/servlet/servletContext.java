@@ -21,15 +21,15 @@ public class servletContext extends HttpServlet {
         System.out.println(names);
 
         //获取全局属性值
-        Integer count = (Integer)context.getAttribute("count");
-        if (count == null){
-            context.setAttribute("count",1);
-        }else {
-            context.setAttribute("count",++count);
+        Integer count = (Integer) context.getAttribute("count");
+        if (count == null) {
+            context.setAttribute("count", 1);
+        } else {
+            context.setAttribute("count", ++count);
         }
-        count = (Integer)context.getAttribute("count");
-        String result="<font color='red' size='18'>当前站点被点击了"
-                +count+"次</font><br></br>";
+        count = (Integer) context.getAttribute("count");
+        String result = "<font color='red' size='18'>当前站点被点击了"
+                + count + "次</font><br></br>";
         resp.getOutputStream().write(result.getBytes());
 
         //读取配置文件
@@ -43,6 +43,6 @@ public class servletContext extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        doGet(req,resp);
+        doGet(req, resp);
     }
 }

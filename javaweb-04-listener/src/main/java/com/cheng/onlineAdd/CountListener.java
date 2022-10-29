@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class CountListener implements HttpSessionListener, ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         AtomicInteger integer = new AtomicInteger();
-        sce.getServletContext().setAttribute("user",integer);
+        sce.getServletContext().setAttribute("user", integer);
         System.out.println("context:" + integer);
     }
 
@@ -36,7 +36,7 @@ public class CountListener implements HttpSessionListener, ServletContextListene
         System.out.println(user1);
     }
 
-    private AtomicInteger getAtomicInteger(HttpSessionEvent se){
+    private AtomicInteger getAtomicInteger(HttpSessionEvent se) {
         ServletContext context = se.getSession().getServletContext();
         AtomicInteger user = (AtomicInteger) context.getAttribute("user");
         return user;

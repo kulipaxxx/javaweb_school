@@ -14,7 +14,7 @@ public class AutoLoginFilter implements Filter {
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         //强转
-        HttpServletRequest req = (HttpServletRequest)request;
+        HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
 
         HttpSession session = req.getSession();
@@ -29,15 +29,15 @@ public class AutoLoginFilter implements Filter {
                 }
             }
         }
-        if (login != null){
-            if (login.equals(result)){
+        if (login != null) {
+            if (login.equals(result)) {
                 User user = new User();
                 user.setName("root");
                 user.setPwd("123456");
                 session.setAttribute("user", user);
             }
         }
-        chain.doFilter(request,response);
+        chain.doFilter(request, response);
     }
 
     public void destroy() {

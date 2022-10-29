@@ -13,7 +13,7 @@ public class FilterEncoding implements Filter {
         HttpServletResponse resp = (HttpServletResponse) response;
         resp.setContentType("text/html;charset=utf-8");
         System.out.println("过滤器执行了");
-        chain.doFilter(request,response);
+        chain.doFilter(request, response);
     }
 
     public void destroy() {

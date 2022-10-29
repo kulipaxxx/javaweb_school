@@ -16,7 +16,7 @@ public class AutoLoginServlet extends HttpServlet {
         HttpSession session = req.getSession();
         String[] times = req.getParameterValues("time");
         String kp = null;
-        if (times != null){
+        if (times != null) {
             for (String time : times) {
                 kp = time;
             }
@@ -26,16 +26,16 @@ public class AutoLoginServlet extends HttpServlet {
                 User user = new User(userName, pwd);
                 String result = userName + "-" + pwd;
                 Cookie info = new Cookie("userInfo", result);
-                if (kp != null){
+                if (kp != null) {
                     switch (Integer.valueOf(kp)) {
                         case 1:
                             info.setMaxAge(60);
                             break;
                         case 2:
-                            info.setMaxAge(60*2);
+                            info.setMaxAge(60 * 2);
                             break;
                         case 3:
-                            info.setMaxAge(60*3);
+                            info.setMaxAge(60 * 3);
                             break;
                         default:
                             break;

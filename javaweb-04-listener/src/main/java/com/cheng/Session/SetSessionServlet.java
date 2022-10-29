@@ -14,11 +14,11 @@ public class SetSessionServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
 
-        session.setAttribute("userInfo",new User("user1"));
+        session.setAttribute("userInfo", new User("user1"));
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-       this.doGet(req, resp);
+        this.doGet(req, resp);
     }
 }

@@ -11,7 +11,7 @@ import java.io.IOException;
 public class ShowNumberServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().println("<h1>当前在线人数"+ CountList.sessionId.size()+ "</h1>");
+        resp.getWriter().println("<h1>当前在线人数" + CountList.sessionId.size() + "</h1>");
     }
 
     @Override

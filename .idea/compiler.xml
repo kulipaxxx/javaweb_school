@@ -10,10 +10,10 @@
         <module name="javaweb-02-sessionCookie" />
         <module name="javaweb-03-filter" />
         <module name="javaweb-04-listener" />
-        <module name="test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="javaweb-05-templates" target="1.5" />
       <module name="javaweb-05-thymeleaf" target="1.5" />
     </bytecodeTargetLevel>
   </component>
