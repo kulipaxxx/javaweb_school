@@ -13,6 +13,7 @@
         <module>javaweb-02-sessionCookie</module>
         <module>javaweb-03-filter</module>
         <module>javaweb-04-listener</module>
+        <module>javaweb-05-vcode</module>
 
     </modules>
 

@@ -12,7 +12,7 @@ public class GetSessionServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Object userInfo = session.getAttribute("userInfo");
-        
+
         resp.getWriter().println(userInfo);
     }
 

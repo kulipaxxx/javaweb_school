@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        function change() {
+            var t = new Date();
+            document.getElementById("codeImg").src="/GenerateCodeServlet?time="+t;
+        }
+    </script>
+</head>
+<body>
+<h2>用户登录</h2>
+<form action="/ValidateServlet" method="post">
+    用户名：<input type="text" name="username"><br>
+    密码：<input type="text" name="password"><br>
+    验证码：<input type="text" name="code"><br>
+    <img id="codeImg" src="/GenerateCodeServlet" alt="这是验证码"><br>
+    <a href="javascript:change();">换一张</a><br>
+    登录：<input type="submit" value="登录">
+</form>
+
+</body>
+</html>
